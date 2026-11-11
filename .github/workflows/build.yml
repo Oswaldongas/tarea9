@@ -1,4 +1,4 @@
-name: build oswaldongas
+name: asfasf oswaldongas
 on: push
 jobs:
     build-node:

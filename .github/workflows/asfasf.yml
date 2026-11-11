@@ -1,0 +1,23 @@
+name: build oswaldongas
+on: push
+jobs:
+    build-python:
+        runs-on: ubuntu-latest
+        container: python:3.12
+
+        steps:
+            - name: Descargar repositorio
+              uses: actions/checkout@v4
+
+            - name: Verificar entorno
+              run: |
+                echo "Ejecutando dentro del contenedor de Python"
+                python --version
+                pip --version
+
+            - name: Instalar dependencias
+              run: |
+                if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+            - name: Ejecutar aplicación
+              run: python main.py
